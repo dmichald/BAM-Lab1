@@ -19,6 +19,12 @@
             </intent-filter>
         </activity>
         <service android:name=".services.SimpleService"/>
+        <provider
+            android:authorities="com.example.exampleapp.provider"
+            android:name=".contentprovider.ExampleContentProvider"
+            android:exported="true"/>
+
+
     </application>
 
 </manifest>

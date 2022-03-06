@@ -48,8 +48,10 @@ class HelloActivity : AppCompatActivity() {
         GlobalScope.launch {
           val userList = (applicationContext as ExampleApplication).database.userDao().getAll()
             for(user in userList){
-                Log.d(TAG, "ID: ${user.uid}. User: ${user.userName}. Number: ${user.number}")
+                val line = "ID: ${user.uid}. User: ${user.userName}. Number: ${user.number} \n"
+                Log.d(TAG, line)
             }
+            findViewById<TextView>(R.id.usersList).text = userList.size.toString()
         }
     }
 

@@ -3,14 +3,15 @@ package com.example.exampleapp.contentprovider
 import android.content.ContentProvider
 import android.content.ContentValues
 import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteQueryBuilder
 import android.net.Uri
 import com.example.exampleapp.ExampleApplication
 
 class ExampleContentProvider : ContentProvider() {
-/*    private val userDao by lazy {
+    private val userDao by lazy {
         (context!!.applicationContext as ExampleApplication).database.userDao()
-    }*/
-
+    }
     override fun onCreate(): Boolean {
         return false
     }
@@ -21,8 +22,8 @@ class ExampleContentProvider : ContentProvider() {
         selection: String?,
         selectionArgs: Array<out String>?,
         sortOrder: String?
-    ): Cursor? {
-        TODO("Not yet implemented")
+    ): Cursor {
+        return userDao.getAllCursor()
     }
 
     override fun getType(uri: Uri): String? {
