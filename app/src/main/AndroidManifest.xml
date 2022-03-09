@@ -22,9 +22,16 @@
         <provider
             android:authorities="com.example.exampleapp.provider"
             android:name=".contentprovider.ExampleContentProvider"
-            android:exported="true"/>
-
+            android:exported="true"
+            android:enabled="true"
+            android:grantUriPermissions="true"
+            android:multiprocess="true"
+           />
 
     </application>
+    <queries>
+        <provider android:authorities="com.example.exampleapp.provider" />
+        <package android:name="com.example.exampleapp.contentprovider.ExampleContentProvider" />
+    </queries>
 
 </manifest>

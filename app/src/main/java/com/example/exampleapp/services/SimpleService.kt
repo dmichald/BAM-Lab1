@@ -32,7 +32,7 @@ class SimpleService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         GlobalScope.launch {
             var number = 0
-            userName = intent!!.getStringExtra(NumberReceiver.USER_NAME_EXTRA)
+            userName = intent!!.getStringExtra(NumberReceiver.USER_NAME_EXTRA).toString()
             sendToNumberReceiver(number, userName)
             while (!isDestroyed) {
                 number++
